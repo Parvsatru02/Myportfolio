@@ -70,6 +70,7 @@ const certifications = Array.from({ length: 9 }, (_, i) => {
 export default function App() {
   // Dark mode state
   const [darkMode, setDarkMode] = useState(true);
+  const [selectedCert, setSelectedCert] = useState(null);
 
   useEffect(() => {
     if (darkMode) {
@@ -142,12 +143,19 @@ export default function App() {
 
       {/* Hero Section */}
       <header
-        className={`h-screen flex flex-col justify-center items-center text-center px-4 pt-24 transition-colors duration-500 ${
+        className={`h-screen flex flex-col justify-center items-center text-center px-4 pt-20 transition-colors duration-500 ${
           darkMode
             ? "bg-gradient-to-br from-black via-gray-900 to-gray-800"
             : "bg-gradient-to-br from-indigo-300 via-white to-indigo-300"
         }`}
       >
+        {/* Profile Image */}
+        <img
+          src="/PP.jpg"
+          alt="Parvathi Satrugnaraj"
+          className="w-64 h-64 rounded-full mb-4 shadow-lg object-cover"
+        />
+
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -336,15 +344,27 @@ export default function App() {
           >
             {certifications.map((src, index) => (
               <img
-              key={index}
-              src={src}
-              alt={`Certificate ${index + 1}`}
-              className="w-80 h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300 snap-start"
-            />
-            
+                key={index}
+                src={src}
+                alt={`Certificate ${index + 1}`}
+                onClick={() => setSelectedCert(src)}
+                className="w-80 h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer snap-start"
+              />
             ))}
           </div>
         </div>
+        {selectedCert && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
+            onClick={() => setSelectedCert(null)}
+          >
+            <img
+              src={selectedCert}
+              alt="Enlarged Certificate"
+              className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-lg"
+            />
+          </div>
+        )}
       </section>
 
       {/* Contact Section */}
