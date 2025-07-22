@@ -4,7 +4,17 @@ import { FaLinkedin, FaGithub, FaSun, FaMoon } from "react-icons/fa";
 
 const skills = {
   Programming: ["Python", "C++", "C", "Java", "SQL"],
-  Tools: ["Excel", "Tableau", "Pandas", "Matplotlib", "Flask", "React.js", "Tailwind CSS", "Git", "Nginx"],
+  Tools: [
+    "Excel",
+    "Tableau",
+    "Pandas",
+    "Matplotlib",
+    "Flask",
+    "React.js",
+    "Tailwind CSS",
+    "Git",
+    "Nginx",
+  ],
   SoftSkills: ["Communication", "Problem Solving", "Time Management", "Creative Thinking"],
 };
 
@@ -50,6 +60,12 @@ const experiences = [
     ],
   },
 ];
+
+const certifications = Array.from({ length: 9 }, (_, i) => {
+  const num = i + 1;
+  const ext = num === 9 ? "png" : "jpg"; // assuming only Cert9 is png
+  return `/certificates/Cert${num}.${ext}`;
+});
 
 export default function App() {
   // Dark mode state
@@ -101,6 +117,11 @@ export default function App() {
               </a>
             </li>
             <li>
+              <a href="#certifications" className="hover:text-indigo-700 transition">
+                Certifications
+              </a>
+            </li>            
+            <li>
               <a href="#contact" className="hover:text-indigo-700 transition">
                 Contact
               </a>
@@ -124,7 +145,7 @@ export default function App() {
         className={`h-screen flex flex-col justify-center items-center text-center px-4 pt-24 transition-colors duration-500 ${
           darkMode
             ? "bg-gradient-to-br from-black via-gray-900 to-gray-800"
-            : "bg-gradient-to-br from-indigo-50 via-white to-indigo-100"
+            : "bg-gradient-to-br from-indigo-300 via-white to-indigo-300"
         }`}
       >
         <motion.h2
@@ -249,7 +270,11 @@ export default function App() {
                 {exp.title} — {exp.company}
               </h3>
               <p className="text-sm text-gray-500 mb-2">{exp.duration}</p>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+              <ul
+                className={`list-disc list-inside space-y-1 ${
+                  darkMode ? "text-gray-300" : "text-gray-900"
+                }`}
+              >
                 {exp.details.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}
@@ -289,6 +314,34 @@ export default function App() {
                   {proj.description}
                 </p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certificate Section */}
+      <section
+        id="certifications"
+        className={`py-20 px-6 transition-colors duration-500 ${
+          darkMode ? "bg-gray-900" : "bg-white"
+        }`}
+      >
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10 border-b-4 border-indigo-600 inline-block">
+            Certifications
+          </h2>
+          <div
+            className="whitespace-nowrap flex gap-6 pb-4 scroll-smooth snap-x snap-mandatory no-scrollbar"
+            style={{ overflowX: "auto", overflowY: "hidden" }}
+          >
+            {certifications.map((src, index) => (
+              <img
+              key={index}
+              src={src}
+              alt={`Certificate ${index + 1}`}
+              className="w-80 h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300 snap-start"
+            />
+            
             ))}
           </div>
         </div>
