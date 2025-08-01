@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Heart Disease Detection",
     description:
-      "Developed a machine learning pipeline using Python and Scikit-learn to predict heart disease with 88% accuracy. This project involved real-world patient data, detailed EDA, and model optimization techniques.",
+      "Developed a machine learning pipeline using Python and Scikit-learn to predict heart disease with 88% accuracy. This project involved multiple patient data, detailed EDA, and model optimization techniques.",
   },
   {
     title: "Engage Court Booking App",
@@ -38,7 +38,7 @@ const projects = [
 
 const experiences = [
   {
-    company: "Emirates",
+    company: "Emirates Airline",
     title: "Automation Intern",
     duration: "Feb 2025 – Present",
     details: [
@@ -205,7 +205,7 @@ export default function App() {
             darkMode ? "text-gray-300" : "text-gray-800"
           }`}
         >
-          I’m a final-year Computer Engineering student who loves turning ideas
+          I’m a Computer Engineering graduate who loves turning ideas
           into working code. Whether it's building intuitive UIs with React or
           developing smart automation pipelines using Python and Flask, I enjoy
           crafting solutions that are elegant, efficient, and impactful. I’m
@@ -258,39 +258,56 @@ export default function App() {
         </div>
       </section>
 
-      {/* Experience Timeline */}
-      <section id="experience" className="max-w-5xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold mb-10 border-b-4 border-indigo-600 inline-block">
-          Experience
-        </h2>
-        <div className="relative border-l-4 border-indigo-600 ml-4">
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: idx * 0.2 }}
-              className="mb-12 ml-8 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-indigo-300 transition"
-              style={{ backgroundColor: darkMode ? "#374151" : "#fff" }}
-            >
-              <div className="absolute -left-9 top-6 bg-indigo-600 rounded-full w-6 h-6 border-4 border-white"></div>
-              <h3 className="text-xl font-semibold text-indigo-600">
-                {exp.title} — {exp.company}
-              </h3>
-              <p className="text-sm text-gray-500 mb-2">{exp.duration}</p>
-              <ul
-                className={`list-disc list-inside space-y-1 ${
-                  darkMode ? "text-gray-300" : "text-gray-900"
-                }`}
-              >
-                {exp.details.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </motion.div>
+{/* Experience Timeline */}
+<section id="experience" className="max-w-5xl mx-auto px-6 py-20">
+  <h2 className="text-3xl font-bold mb-10 border-b-4 border-indigo-600 inline-block">
+    Experience
+  </h2>
+  <div className="relative border-l-4 border-indigo-600 ml-4">
+    {experiences.map((exp, idx) => (
+      <motion.div
+        key={exp.company}
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: idx * 0.2 }}
+        className="mb-12 ml-8 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-indigo-300 transition"
+        style={{ backgroundColor: darkMode ? "#374151" : "#fff" }}
+      >
+        <div className="absolute -left-9 top-6 bg-indigo-600 rounded-full w-6 h-6 border-4 border-white"></div>
+
+        {/* ✅ Red color for both Emirates & Cognicx */}
+        <h3
+          className={`text-xl font-semibold ${
+            exp.company === "Emirates Airline" || exp.company === "Cognicx IT Solutions"
+              ? "text-red-500"
+              : "text-indigo-600"
+          }`}
+        >
+          {exp.title} — {exp.company}
+        </h3>
+
+        <p
+          className={`text-sm font-medium mb-2 ${
+            darkMode ? "text-white" : "text-black"
+          }`}
+        >
+          {exp.duration}
+        </p>
+
+        <ul
+          className={`list-disc list-inside space-y-1 ${
+            darkMode ? "text-gray-300" : "text-gray-900"
+          }`}
+        >
+          {exp.details.map((point, i) => (
+            <li key={i}>{point}</li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
 
       {/* Projects */}
       <section
