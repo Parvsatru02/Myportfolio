@@ -22,17 +22,17 @@ const projects = [
   {
     title: "Heart Disease Detection",
     description:
-      "Developed a machine learning pipeline using Python and Scikit-learn to predict heart disease with 88% accuracy. This project involved multiple patient data, detailed EDA, and model optimization techniques.",
+      "Developed a complete machine learning pipeline using Python, Pandas, and Scikit-learn to predict heart disease based on patient data. Performed exploratory data analysis (EDA), selected relevant features, and optimized model performance to achieve 88% accuracy. Focused on building a reliable classification model with clear output for real-world applicability.",
   },
   {
     title: "Engage Court Booking App",
     description:
-      "Built a user-friendly court reservation platform using Flutterflow. Designed intuitive booking flows, connected it to a backend database, and created an admin dashboard for real-time management.",
+      "Built a fully functional sports court reservation app using Flutterflow, designed for ease of use and smooth user experience. Integrated with a backend database (Firestore) to store and track booking details. Created an admin dashboard for court managers to view, approve, or manage court reservations in real-time.",
   },
   {
     title: "Data Analytics Dashboards",
     description:
-      "Cleaned, transformed, and visualized complex datasets using Python, Excel, and Tableau. Created interactive dashboards that communicated trends, insights, and KPIs for decision-making.",
+      "Explored multiple real-world datasets to uncover patterns, trends, and key insights. Used Python (Pandas, Matplotlib) for data processing and Excel/Tableau for interactive dashboards and visual storytelling. Applied data cleaning, transformation, and basic statistical techniques to support data-driven decision-making.",
   },
 ];
 
