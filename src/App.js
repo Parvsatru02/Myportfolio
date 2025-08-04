@@ -47,6 +47,7 @@ const experiences = [
       "Streamlined DevOps with CI/CD pipelines and Git workflows",
       "Configured Nginx for performance optimization (load balancing, caching, failover)",
       "Contributed to a Smart Crisis Command Hub for real-time network event tracking",
+      "Worked on Generative AI features to support operational tools and automation",
     ],
   },
   {
@@ -56,6 +57,8 @@ const experiences = [
     details: [
       "Built ML classification models using Python and TensorFlow",
       "Cleaned and preprocessed datasets using Pandas for better model performance",
+      "Created a sentiment analysis model to classify customer feedback as positive or negative",
+      "Designed a basic UI for real-time feedback input and prediction display",
       "Gained exposure to model deployment and evaluation in production scenarios",
     ],
   },
